@@ -492,6 +492,7 @@ class _HomeState extends State<Home> {
   Future<bool> _willPopCallback() async {
     return false;
   }
+  final LocalAuthentication auth = LocalAuthentication();
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -499,9 +500,21 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         appBar: AppBar(
           leading: SizedBox(),
-          title: Text(widget.data['data']['first_name']),
+          title: Text(widget.data['data']['first_name']+" "+widget.data['data']['first_name']),
         ),
-        body: Container(),
+        body: Container(
+          child: Column(
+            children: [
+              FlatButton(
+                child: Text("Logout"),
+                onPressed: (){
+                  auth.stopAuthentication();
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>MyHomePage()));
+                },
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
