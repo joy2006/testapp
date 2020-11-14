@@ -500,7 +500,7 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         appBar: AppBar(
           leading: SizedBox(),
-          title: Text(widget.data['data']['first_name']+" "+widget.data['data']['first_name']),
+          title: Text(widget.data['data']['first_name']+" "+widget.data['data']['last_name']),
         ),
         body: Container(
           child: Column(
